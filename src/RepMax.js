@@ -46,9 +46,13 @@ class RepMax extends Component {
               <Button
                 text='CALC'
                 onPress={() => {
-                  this.setState({deadlift: this.state.value * 1.57});
-                  this.setState({clean: this.state.value * 0.8});
-                  this.setState({snatch: this.state.value * 0.64});
+                  let deadlift = (this.state.value * 1.57).toFixed(2);
+                  let clean = (this.state.value * 0.8).toFixed(2);
+                  let snatch = (this.state.value * 0.64).toFixed(2);
+
+                  this.setState({deadlift: deadlift});
+                  this.setState({clean: clean});
+                  this.setState({snatch: snatch});
                 }}
               />
             </Card.Actions>
@@ -58,9 +62,18 @@ class RepMax extends Component {
         <View style={{flex: 4}}>
           <Card>
             <Card.Body>
-              <Text>Deadlift: {this.state.deadlift} kg</Text>
-              <Text>Clean & Jerk: {this.state.clean} kg</Text>
-              <Text>Snatch: {this.state.snatch} kg</Text>
+              <Text>
+                <Text style={{fontWeight: 'bold'}}>Deadlift: </Text>
+                {this.state.deadlift} kg
+              </Text>
+              <Text>
+                <Text style={{fontWeight: 'bold'}}>Clean & Jerk: </Text>
+                {this.state.clean} kg
+              </Text>
+              <Text>
+                <Text style={{fontWeight: 'bold'}}>Snatch: </Text>
+                {this.state.snatch} kg
+              </Text>
             </Card.Body>
           </Card>
         </View>
